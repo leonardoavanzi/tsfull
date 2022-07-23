@@ -6,7 +6,9 @@ const dataObjFromApi = z.object({
     description: z.string()
 })
 
-fetch('/aaa').then(res => res.json()).then(result => {
+type dataObjFromApiType = z.infer<typeof dataObjFromApi>
+
+fetch('/open').then(res => res.json()).then(result => {
     const data = dataObjFromApi.parse(result)
 
 })
